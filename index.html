@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Up Collectibles</title>
+    <link rel="icon" href="im/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="im/logo.webp" alt="Logo de Level Up Collectibles">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <input type="text" id="searchBar" placeholder="Buscar productos..." class="search-bar">
+        <button id="cartBtn"><i class="fas fa-shopping-cart"></i> Carrito (<span id="cartCount">0</span>)</button>
+    </header>
+    
+    <main>
+        <section id="inicio">
+            <h1>Bienvenido a Level Up Collectibles</h1>
+            <p>Lleva la aventura más allá del juego.</p>
+        </section>
+        
+        <section id="productos">
+            <h2>Nuestros Productos</h2>
+            <div class="productos-grid">
+                <article class="producto" data-nombre="Funkopop Lumine" data-precio="290.99">
+                    <img src="im/1.webp" alt="Figura Funkopop del personaje Lumine">
+                    <h3>Funkopop Lumine</h3>
+                    <p>$290.99</p>
+                    <button class="addToCart">Agregar al Carrito</button>
+                </article>
+                <article class="producto" data-nombre="Funkopop Aether" data-precio="190.99">
+                    <img src="im/2.jpg" alt="Figura Funkopop del personaje Aether">
+                    <h3>Funkopop Aether</h3>
+                    <p>$190.99</p>
+                    <button class="addToCart">Agregar al Carrito</button>
+                </article>
+                <article class="producto" data-nombre="Figura de Acción Kratos" data-precio="350.50">
+                    <img src="im/3.jpg" alt="Figura de acción de Kratos">
+                    <h3>Figura de Acción Kratos</h3>
+                    <p>$350.50</p>
+                    <button class="addToCart">Agregar al Carrito</button>
+                </article>
+                <article class="producto" data-nombre="Figura de Acción Aloy" data-precio="400.00">
+                    <img src="im/4.avif" alt="Figura de acción de Aloy">
+                    <h3>Figura de Acción Aloy</h3>
+                    <p>$400.00</p>
+                    <button class="addToCart">Agregar al Carrito</button>
+                </article>
+                <article class="producto" data-nombre="Figura Amiibo Zelda" data-precio="320.00">
+                    <img src="im/5.jpg" alt="Figura Amiibo de Zelda">
+                    <h3>Figura Amiibo Zelda</h3>
+                    <p>$320.00</p>
+                    <button class="addToCart">Agregar al Carrito</button>
+                </article>
+                
+                <article class="producto" data-nombre="Funko Pop Master Chief" data-precio="275.00">
+                    <img src="im/6.jpg" alt="Figura Funko Pop de Master Chief">
+                    <h3>Funko Pop Master Chief</h3>
+                    <p>$275.00</p>
+                    <button class="addToCart">Agregar al Carrito</button>
+                </article>
+                
+                <article class="producto" data-nombre="Figura Articulada Samus Aran" data-precio="499.99">
+                    <img src="im/7.jpg" alt="Figura articulada de Samus Aran">
+                    <h3>Figura Articulada Samus Aran</h3>
+                    <p>$499.99</p>
+                    <button class="addToCart">Agregar al Carrito</button>
+                </article>
+                
+                <article class="producto" data-nombre="Estatua Coleccionable Geralt de Rivia" data-precio="799.99">
+                    <img src="im/8.jpg" alt="Estatua coleccionable de Geralt de Rivia">
+                    <h3>Estatua Coleccionable Geralt de Rivia</h3>
+                    <p>$799.99</p>
+                    <button class="addToCart">Agregar al Carrito</button>
+                </article>
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal del carrito -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content" style="color: #ffffff;">
+            <span class="close">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <ul id="cartItems"></ul>
+            <p>Total: $<span id="cartTotal">0.00</span></p>
+            <button id="clearCart">Vaciar Carrito</button>
+            <aside id="paymentOptions">
+                <h3>Opciones de Pago</h3>
+                <button id="paypalBtn"><i class="fab fa-paypal"></i> PayPal</button>
+                <button id="mercadoPagoBtn"><i class="fab fa-cc-mastercard"></i> Mercado Pago</button>
+                <button id="creditCardBtn"><i class="fas fa-credit-card"></i> Tarjeta de Crédito</button>
+                <button id="debitCardBtn"><i class="fas fa-university"></i> Tarjeta de Débito</button>
+                <button id="oxxoBtn"><i class="fas fa-store"></i> OXXO</button>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Modal de pago -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content" style="color: #ffffff;">
+            <span class="close">&times;</span>
+            <h2 id="paymentTitle"></h2>
+            <form id="paymentForm">
+                <div id="paymentFields"></div>
+                <button type="submit">Pagar</button>
+            </form>
+        </div>
+    </div>
+
+    <section id="nosotros">
+        <h2>Sobre Nosotros</h2>
+        <p>Somos Level Up Collectibles, una tienda dedicada a los verdaderos gamers y coleccionistas. Ofrecemos productos exclusivos inspirados en tus videojuegos favoritos.</p>
+        <div class="nosotros-contenido">
+            <img src="nosotros.jpg" alt="Nuestro equipo de trabajo">
+            <p>Nuestro objetivo es llevar la emoción del juego al mundo real con productos de calidad y diseños únicos. ¡Únete a la comunidad Level Up!</p>
+        </div>
+    </section>
+    
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>¿Tienes preguntas o sugerencias? ¡Contáctanos!</p>
+        <form id="contactForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu Nombre" required>
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" placeholder="Tu Correo Electrónico" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Level Up Collectibles. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
